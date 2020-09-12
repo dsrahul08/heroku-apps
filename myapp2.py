@@ -1,9 +1,9 @@
+import os
 import streamlit as st
 import pandas as pd
-from sklearn import datasets
 from sklearn.linear_model import LinearRegression
 
-st.sidebar.image('Datasciencepro.png',None,100)
+st.sidebar.image(os.path.join('Datasciencepro.png'),None,100)
 st.write("""
 # HR Analytics - Predict the **Salary** based on **Experience** 
 Simple Linear Regression!
@@ -22,9 +22,8 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
-import os
-os.chdir(r'C:\Users\Rahul\Desktop\Streamlit')
-dataset  = pd.read_csv('Salary_Data.csv')
+# os.chdir(r'C:\Users\Rahul\Desktop\Streamlit')
+dataset  = pd.read_csv(os.path.join('Salary_Data.csv'))
 X = dataset.iloc[:,:-1].values
 Y = dataset.iloc[:,1].values
 
@@ -45,7 +44,6 @@ st.subheader('The regression coefficients are:')
 st.write('Slope of a line:', regressor.coef_)
 
 st.write('Y - Intercept of a line:', regressor.intercept_)
-
 
 #st.subheader('Prediction Probability')
 #st.write(prediction_proba)
